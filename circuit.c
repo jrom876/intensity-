@@ -1,7 +1,7 @@
 
 ///	Package:	circuit
 ///	File:		circuit.c 
-///	Purpose:	Modeling DoseEdge LED circuit performance
+///	Purpose:	Modeling LED circuit performance
 ///	Author:		jrom876
 
 /**
