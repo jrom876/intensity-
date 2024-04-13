@@ -204,7 +204,7 @@ void doseEdge_ResToLux(float resistor) {
 }
 
 /// Calculates and returns the LUX output as a percetage of maximum 
-/// of a DoseEdge LED array as a function of th current limiting resistor value
+/// of a DoseEdge LED array as a function of the current limiting resistor value
 
 void doseEdge_ResToPercent(float resistor) {
 	 const float PercentSlope = 1.875;
