@@ -4,8 +4,8 @@
 
 /**
 	Copyright (C) 2023 
-	Jacob Romero, ERI Group, LLC
-	jromero@erigroup.com
+	Jacob Romero, Creative Engineering Solutions, LLC
+	cesllc876@gmail.com
 **/
 
 double calc_intensity(int c, double ari, double eps0, double efield);
