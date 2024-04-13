@@ -1,0 +1,89 @@
+// intensity.check
+
+/**
+	Copyright (C) 2023 
+	Jacob Romero, ERI Group, LLC
+	jromero@erigroup.com
+**/
+
+#include <stdint.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <check.h>
+#include "intensity.c"
+
+#define PI	3.14159265358979323846 // ad infinitum
+#define LIGHT_SPEED		299792458.0 // meters per second
+#define DATA_SIZE 1000
+#define MICRO 1.0e-6
+#define NANO 1.0e-9
+#define PICO 1.0e-12
+#define KILO 1.0e3
+#define MEGA 1.0e6
+#define GIGA 1.0e9
+#define TERA 1.0e12 
+#define AIR_REFRACTIVE_INDEX 1.00027717
+#define E0 8.8541878128*PICO				// Permittivity of Free Space in Farads per meter
+#define MU0 1.25663706212*MICRO			// Permeability of Free Space in Newtons per square meter
+#define EPSILON_0 1/(MU0*(LIGHT_SPEED*LIGHT_SPEED))	// Permittivity of Free Space Equation
+#define ELECTRON_CHARGE 1.6e-19 // Electric charge of an electron in Coulombs
+#define RADIUS_HELIUM_ATOM 26.5e-12
+#define LED_ARRAY_RADIUS 0.35 // meters from LED arrayn to sample plate
+#define E_CONSTANT 1/(4*PI*EPSILON_0)
+
+//// IMPORTANT: Be sure to include the .c file, not the .h file.
+//// This gives us access to all static members of the .c file.
+
+//// To generate and run test code automatically,
+//// run the following commands on the linux command line.
+//// checkmk intensitytest.check >intensity.c
+//// make -f make-test.mk intensitytest
+
+#test intensitytest
+void Run_Intensity_AutoTest_Loop(void){
+	int k;
+	
+	//double E = (E_CONSTANT * ((2*(1.6e-19))/(26.5e-12*26.5e-12));
+	printf("\nHelium Atom Electric Field\n");
+	double E_Helium = calc_Electric_Field(1, ELECTRON_CHARGE, RADIUS_HELIUM_ATOM);	
+	printf("\nLED Array Electric Field\n");
+	double E_LED_Array = (19*6) * calc_Electric_Field(1, ELECTRON_CHARGE, LED_ARRAY_RADIUS);
+	
+	struct I_test i3;	
+	i3.c = LIGHT_SPEED;						
+	i3.ri = AIR_REFRACTIVE_INDEX;						
+	i3.e0 = EPSILON_0;	
+	i3.Efield = E_Helium;	
+	
+	struct I_test i4;	
+	i4.c = LIGHT_SPEED;						
+	i4.ri = AIR_REFRACTIVE_INDEX;						
+	i4.e0 = EPSILON_0;	
+	i4.Efield = E_LED_Array;	
+	
+	// This is the main (inner) loop, for finest incremental iteration
+			for (k = 1; k <= 1; k++) {			
+				
+				printf("\nIntensity of Helium Atom Electric Field\n");
+				double E_Helium = (1/((4*PI)*(EPSILON_0))) * ((2*(ELECTRON_CHARGE))/(RADIUS_HELIUM_ATOM*RADIUS_HELIUM_ATOM));
+				calc_intensity(LIGHT_SPEED, i3.ri, i3.e0, E_Helium);
+				
+				printf("\nIntensity of DoseEdge LED ArrayElectric Field\n");
+				//double E_LED_Array = (1/((4*PI)*(EPSILON_0))) * ((2*(ELECTRON_CHARGE))/(LED_ARRAY_RADIUS*LED_ARRAY_RADIUS));
+				calc_intensity(LIGHT_SPEED, i4.ri, i4.e0, E_LED_Array);								
+				
+				printf("\n");
+				
+				/// Assertions
+				//fail_if((f3.cf_MHz<= 0 || f3.bw_kHz<= 0 || f3.ind_uH<= 0), "Whoah, those values dont make sense!!");
+				//fail_if((((f3.cf_MHz*MEGA)/(f3.bw_kHz*KILO)) < 10.1) , "That Q %.3f is too small, because BW is too wide");
+				//ck_assert_int_eq(((f3.cf_MHz*MEGA)/(f3.bw_kHz*KILO)), 10.0);
+				//fail_unless((rxPwrDBM(t1.PtdBm,t1.GtdB,t1.GrdB,t1.R,t1.freq))*TERA < 3690, "WTF?");
+				
+			}	
+	//}
+}
+
+Run_Intensity_AutoTest_Loop();

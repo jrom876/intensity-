@@ -1,0 +1,114 @@
+// circuit.check
+
+/**
+	Copyright (C) 2023 
+	Jacob Romero, ERI Group, LLC
+	jromero@erigroup.com
+**/
+
+#include <stdint.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <check.h>
+#include "circuit.c"
+
+#define PI	3.14159265358979323846 // ad infinitum
+#define LIGHT_SPEED		299792458.0 // meters per second
+#define DATA_SIZE 1000
+#define MICRO 1.0e-6
+#define NANO 1.0e-9
+#define PICO 1.0e-12
+#define KILO 1.0e3
+#define MEGA 1.0e6
+#define GIGA 1.0e9
+#define TERA 1.0e12 
+#define AIR_REFRACTIVE_INDEX 1.00027717
+#define E0 8.8541878128*PICO				// Permittivity of Free Space in Farads per meter
+#define MU0 1.25663706212*MICRO			// Permeability of Free Space in Newtons per square meter
+#define EPSILON_0 1/(MU0*(LIGHT_SPEED*LIGHT_SPEED))	// Permittivity of Free Space Equation
+#define ELECTRON_CHARGE 1.6e-19 // Electric charge of an electron in Coulombs
+#define RADIUS_HELIUM_ATOM 26.5e-12
+#define LED_ARRAY_RADIUS 0.35 // meters from LED arrayn to sample plate
+#define E_CONSTANT 1/(4*PI*EPSILON_0)
+
+//// IMPORTANT: Be sure to include the .c file, not the .h file.
+//// This gives us access to all static members of the .c file.
+
+//// To generate and run test code automatically,
+//// run the following commands on the linux command line.
+//// checkmk circuittest.check >circuit.c
+//// make -f make-test.mk circuittest
+
+#test circuittest
+void Run_Circuit_AutoTest_Loop(void){
+	//int k;
+	float k;
+	
+	struct C_test c1;	
+	c1.v = 0.210;					
+	//c1.r = 10.2;					
+	c1.r = 50;			
+	//c1.r = 12.6666666;
+	c1.i = branch_current(c1.v, c1.r);					
+	c1.num = 19;
+	
+	// This is the main (inner) loop, for finest incremental iteration
+			//for (k = 1; k <= 1; k++) {
+			for (k = 10; k <= 52; k = k + 0.5) {	
+				/**
+				printf("\n");
+				
+				printf("DoseEdge Circuit Analysis\n");
+				float pr = calc_parallel_resistance(c1.r, c1.num);	
+				printf("parallel resistance = %0.7f\n",pr);
+				float ci = total_current(c1.v, pr, 19);
+				calc_power(c1.v, total_current(c1.v, c1.r, 19));
+				calc_power(c1.v, ci);
+				printf("\n");
+				
+				branch_current(0.204, 10.2);
+				
+				printf("\n");
+				doseEdge_ResToLux(7);
+				doseEdge_ResToLux(10.2);
+				doseEdge_ResToLux(12.6666);
+				doseEdge_ResToLux(28.5);
+				doseEdge_ResToLux(38);
+				doseEdge_ResToLux(50);
+				
+				printf("\n");
+				doseEdge_ResToPercent(7);
+				doseEdge_ResToPercent(10.2);
+				doseEdge_ResToPercent(12.66666);
+				doseEdge_ResToPercent(28.5);
+				doseEdge_ResToPercent(38);
+				doseEdge_ResToPercent(50);
+				printf("\n");
+				**/
+				/**
+				printf("\n");
+				doseEdge_ResToAll(7);
+				doseEdge_ResToAll(10.2);
+				doseEdge_ResToAll(12.66666);
+				doseEdge_ResToAll(28.5);
+				doseEdge_ResToAll(38);
+				doseEdge_ResToAll(50);
+				printf("\n");
+				**/
+				printf("\n");
+				doseEdge_ResToAll(k);
+				printf("\n");
+				
+				/// Assertions
+				//fail_if((f3.cf_MHz<= 0 || f3.bw_kHz<= 0 || f3.ind_uH<= 0), "Whoah, those values dont make sense!!");
+				//fail_if((((f3.cf_MHz*MEGA)/(f3.bw_kHz*KILO)) < 10.1) , "That Q %.3f is too small, because BW is too wide");
+				//ck_assert_int_eq(((f3.cf_MHz*MEGA)/(f3.bw_kHz*KILO)), 10.0);
+				//fail_unless((rxPwrDBM(t1.PtdBm,t1.GtdB,t1.GrdB,t1.R,t1.freq))*TERA < 3690, "WTF?");
+				
+			}	
+	//}
+}
+
+Run_Circuit_AutoTest_Loop();
