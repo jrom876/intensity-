@@ -123,7 +123,8 @@ float total_current(float voltage, float resistance, int num_branches) {
 	 //~ printf("total current = %.8f Amps\t\tVoltage = %.4f\tres = %.4f\n",result,voltage,resistance);
 	 printf("total current = %.8f Amps\t\tNum Branches = %i\n",result, num_branches);
 	 return result;
-}///===============================================
+}
+///===============================================
 /// Calculates and returns the current of a single branch in a circuit
 /// as a function of voltage and resistance
 
@@ -140,7 +141,8 @@ float calc_power_VI(float voltage, float current) {
 	 float result = voltage*current;
 	 printf("total power = %.8f Watts\n",result);
 	 return result;
-}///===============================================
+}
+///===============================================
 /// Calculates and returns the total power dissipated in multiple branches in a circuit
 /// as a function of voltage, current, and the number of branches
 
