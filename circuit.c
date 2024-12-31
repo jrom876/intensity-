@@ -195,7 +195,7 @@ float temp_diff_OJT_TR(float tempRise, float opJunct_Temp) {
 /// DoseEdge LED array specific functions:
 
 /// Calculates and returns the LUX output of a DoseEdge LED array 
-/// as a function of th current limiting resistor value
+/// as a function of the current limiting resistor value
 
 void doseEdge_ResToLux(float resistor) {
 	 const float Luxslope = 30;
