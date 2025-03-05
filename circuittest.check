@@ -60,7 +60,7 @@ void Run_Circuit_AutoTest_Loop(void){
 				/**
 				printf("\n");
 				
-				printf("DoseEdge Circuit Analysis\n");
+				printf("Circuit Analysis\n");
 				float pr = calc_parallel_resistance(c1.r, c1.num);	
 				printf("parallel resistance = %0.7f\n",pr);
 				float ci = total_current(c1.v, pr, 19);
@@ -71,34 +71,34 @@ void Run_Circuit_AutoTest_Loop(void){
 				branch_current(0.204, 10.2);
 				
 				printf("\n");
-				doseEdge_ResToLux(7);
-				doseEdge_ResToLux(10.2);
-				doseEdge_ResToLux(12.6666);
-				doseEdge_ResToLux(28.5);
-				doseEdge_ResToLux(38);
-				doseEdge_ResToLux(50);
+				DE_ResToLux(7);
+				DE_ResToLux(10.2);
+				DE_ResToLux(12.6666);
+				DE_ResToLux(28.5);
+				DE_ResToLux(38);
+				DE_ResToLux(50);
 				
 				printf("\n");
-				doseEdge_ResToPercent(7);
-				doseEdge_ResToPercent(10.2);
-				doseEdge_ResToPercent(12.66666);
-				doseEdge_ResToPercent(28.5);
-				doseEdge_ResToPercent(38);
-				doseEdge_ResToPercent(50);
+				DE_ResToPercent(7);
+				DE_ResToPercent(10.2);
+				DE_ResToPercent(12.66666);
+				DE_ResToPercent(28.5);
+				DE_ResToPercent(38);
+				DE_ResToPercent(50);
 				printf("\n");
 				**/
 				/**
 				printf("\n");
-				doseEdge_ResToAll(7);
-				doseEdge_ResToAll(10.2);
-				doseEdge_ResToAll(12.66666);
-				doseEdge_ResToAll(28.5);
-				doseEdge_ResToAll(38);
-				doseEdge_ResToAll(50);
+				DE_ResToAll(7);
+				DE_ResToAll(10.2);
+				DE_ResToAll(12.66666);
+				DE_ResToAll(28.5);
+				DE_ResToAll(38);
+				DE_ResToAll(50);
 				printf("\n");
 				**/
 				printf("\n");
-				doseEdge_ResToAll(k);
+				DE_ResToAll(k);
 				printf("\n");
 				
 				/// Assertions
