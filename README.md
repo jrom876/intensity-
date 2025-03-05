@@ -1,4 +1,4 @@
-LED Array Circuit Analysis Tool
+LED Array Circuit Modeling Tool
 
 This tool allows us to calculate and display a broad range of light intensities and thermal limits for LED array driver circuits by mathematically modeling circuit performance.
 
