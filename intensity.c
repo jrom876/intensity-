@@ -149,7 +149,7 @@ double calc_Lux(double received_illuminance, double reflectance) {
 //~ }
 //~ ///===============================================
 
-//~ void doseEdge_ResToLux(float resistor) {
+//~ void DE_ResToLux(float resistor) {
 	 //~ const float Luxslope = 30;
 	 //~ const int maxLux = 1900, minRes = 10;
 	 //~ resistor = (resistor >= minRes) ? resistor : 10;
@@ -157,7 +157,7 @@ double calc_Lux(double received_illuminance, double reflectance) {
 	 //~ printf("LUX = %.2f\tlumen/m^2\t for resistor value = %.2f\n",result, resistor);
 //~ }
 
-//~ void doseEdge_ResToPercent(float resistor) {
+//~ void DE_ResToPercent(float resistor) {
 	 //~ const float PercentSlope = 1.875;
 	 //~ const float maxPercent = 118.75, minRes = 10;
 	 //~ resistor = (resistor >= minRes) ? resistor : 10;
@@ -165,7 +165,7 @@ double calc_Lux(double received_illuminance, double reflectance) {
 	 //~ printf("Percent of Max = %.4f\t for resistor value = %.2f\n",result, resistor);
 //~ }
 
-//~ void doseEdge_ResToAll(float resistor) {
+//~ void DE_ResToAll(float resistor) {
 	 //~ const float slope = 30;
 	 //~ const int maxLux = 1900, minRes = 10;
 	 //~ const float PercentSlope = 1.875;
