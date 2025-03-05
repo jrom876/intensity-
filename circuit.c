@@ -60,7 +60,7 @@
 #define LED_ARRAY_RADIUS 0.35 				// meters from LED array to sample plate
 
 /// DEFINITIONS FOR LED ARRAY THERMAL CALCULATIONS
-#define R_THETA_JA_TPS61169	263.8			// Junction to Ambient, in degrees C/Watt
+#define R_THETA_JA_TPS61169	263.8		// Junction to Ambient, in degrees C/Watt
 #define ROOM_TEMP1 25.0				// = 77 deg F
 #define ROOM_TEMP2 26.7 			// = 80.1 deg F
 #define ROOM_TEMP3 40.0 			// = 104.0 deg F
@@ -79,9 +79,9 @@
 		3. number of branches
 **/
 struct C_test {
-    float 	v;		// voltage
-    float 	i; 		// current
-    float 	r;		// resistor
+    float 	v;	// voltage
+    float 	i; 	// current
+    float 	r;	// resistor
     float 	num;	// number of branches 
 };
 ///===============================================
