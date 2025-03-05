@@ -20,8 +20,8 @@ float total_current(float voltage, float resistance, int num_branches);
 float calc_temp_rise (float inVoltage, float outVoltage, float curr, float rtja, float amb);
 int junct_temp_exceeded (float tempRise, float opJunct_Temp);
 
-void doseEdge_ResToLux(float resistor);
-void doseEdge_ResToPercent(float resistor);
-void doseEdge_ResToAll(float resistor);
+void DE_ResToLux(float resistor);
+void DE_ResToPercent(float resistor);
+void DE_ResToAll(float resistor);
 
 #endif
