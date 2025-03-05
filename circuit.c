@@ -204,7 +204,7 @@ void DE_ResToLux(float resistor) {
 	 printf("LUX = %.2f\tlumen/m^2\t res = %.2f\n",result, resistor);
 }
 
-/// Calculates and returns the LUX output as a percetage of maximum 
+/// Calculates and returns the LUX output as a percentage of maximum 
 /// of an LED array as a function of the current limiting resistor value
 
 void DE_ResToPercent(float resistor) {
