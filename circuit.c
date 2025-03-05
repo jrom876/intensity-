@@ -59,7 +59,7 @@
 #define RADIUS_HELIUM_ATOM 26.5e-12			// Radius of a Helium atom in meters
 #define LED_ARRAY_RADIUS 0.35 				// meters from LED array to sample plate
 
-/// DEFINITIONS FOR DOSEEDGE LED ARRAY THERMAL CALCULATIONS
+/// DEFINITIONS FOR LED ARRAY THERMAL CALCULATIONS
 #define R_THETA_JA_TPS61169	263.8			// Junction to Ambient, in degrees C/Watt
 #define ROOM_TEMP1 25.0				// = 77 deg F
 #define ROOM_TEMP2 26.7 			// = 80.1 deg F
@@ -97,7 +97,6 @@ float calc_parallel_resistance(float resistor_value, int num_branches) {
 ///===============================================
 /// Calculates and returns the variable resistance setting required to be placed
 /// in parallel with a fixed resistor in order to obtain a desired net resistance.
-/// For use with DoseEdge LED experiments.
 
 float calc_var_resistance(float desired_res, float fixed_res) {
 	 float result = (fixed_res*desired_res)/(fixed_res-desired_res);
@@ -192,12 +191,12 @@ float temp_diff_OJT_TR(float tempRise, float opJunct_Temp) {
 }
 
 ///=============================================== 
-/// DoseEdge LED array specific functions:
+/// LED array specific functions:
 
-/// Calculates and returns the LUX output of a DoseEdge LED array 
+/// Calculates and returns the LUX output of an LED array 
 /// as a function of the current limiting resistor value
 
-void doseEdge_ResToLux(float resistor) {
+void DE_ResToLux(float resistor) {
 	 const float Luxslope = 30;
 	 const int maxLux = 1900, minRes = 10;
 	 resistor = (resistor >= minRes) ? resistor : 10;
@@ -206,19 +205,19 @@ void doseEdge_ResToLux(float resistor) {
 }
 
 /// Calculates and returns the LUX output as a percetage of maximum 
-/// of a DoseEdge LED array as a function of the current limiting resistor value
+/// of an LED array as a function of the current limiting resistor value
 
-void doseEdge_ResToPercent(float resistor) {
+void DE_ResToPercent(float resistor) {
 	 const float PercentSlope = 1.875;
 	 const float maxPercent = 118.75, minRes = 10;
 	 resistor = (resistor >= minRes) ? resistor : 10;
 	 float result = (maxPercent - (resistor * PercentSlope) >= 0) ? maxPercent - (resistor * PercentSlope) : 0;
 	 printf("Percent of Max = %.4f\t for resistor value = %.2f\n",result, resistor);
 }
-/// Calculates and returns multiple useful values of a DoseEdge LED array 
+/// Calculates and returns multiple useful values of an LED array 
 /// for circuit analysis purposes
 
-void doseEdge_ResToAll(float resistor) {
+void DE_ResToAll(float resistor) {
 	 const float slope = 30;
 	 const int maxLux = 1900, minRes = 10;
 	 const float PercentSlope = 1.875;
@@ -234,14 +233,14 @@ void doseEdge_ResToAll(float resistor) {
 ///===============================================
 
 int main(int argc, char const *argv[]) {
-	printf("\nRunning DoseEdge Circuit Model Tests\n\n");
+	printf("\nRunning Circuit Model Tests\n\n");
 	
 	/** Uncomment this section for general range calculations**/	
 	//~ float count = 0.0;
 	//~ for (count = 1; count <= 63.0; count = count + 0.5) {
 		//~ if (count<= 11.0) {
 			//~ printf("100%% range\n");
-			//~ doseEdge_ResToAll(count);
+			//~ DE_ResToAll(count);
 			//~ calc_var_resistance(calc_parallel_resistance(count, 19), 3.3);
 			//~ branch_current(0.21, count);
 			//~ float tc = total_current(0.21, count, 19);
@@ -254,7 +253,7 @@ int main(int argc, char const *argv[]) {
 		//~ }
 		//~ if (count>=22.0 && count<=25.0) {
 			//~ printf("\n75%% range\n");
-			//~ doseEdge_ResToAll(count);
+			//~ DE_ResToAll(count);
 			//~ calc_var_resistance(calc_parallel_resistance(count, 19), 3.3);
 			//~ branch_current(0.21, count);
 			//~ float tc = total_current(0.21, count, 19);
@@ -266,7 +265,7 @@ int main(int argc, char const *argv[]) {
 		//~ }
 		//~ if (count>= 35.0 && count<=37.0) {			
 			//~ printf("\n50%% range\n");
-			//~ doseEdge_ResToAll(count);
+			//~ DE_ResToAll(count);
 			//~ calc_var_resistance(calc_parallel_resistance(count, 19), 3.3);
 			//~ branch_current(0.21, count);
 			//~ float tc = total_current(0.21, count, 19);
@@ -278,7 +277,7 @@ int main(int argc, char const *argv[]) {
 		//~ }
 		//~ if (count>= 49.0 && count<=51.0) {
 			//~ printf("\n25%% range\n");
-			//~ doseEdge_ResToAll(count);
+			//~ DE_ResToAll(count);
 			//~ calc_var_resistance(calc_parallel_resistance(count, 19), 3.3);
 			//~ branch_current(0.21, count);
 			//~ float tc = total_current(0.21, count, 19);
@@ -292,7 +291,7 @@ int main(int argc, char const *argv[]) {
 	
 	/** Uncomment this section for specific calculations**/
 		  float resVal = 3.3;
-		  doseEdge_ResToAll(resVal);
+		  DE_ResToAll(resVal);
 		  calc_var_resistance(calc_parallel_resistance(resVal, 19), 3.3);
 		  branch_current(0.21, resVal);
 		  float tc = total_current(0.21, resVal, 19);
@@ -303,7 +302,7 @@ int main(int argc, char const *argv[]) {
 		  printf("\n");
 		  
 		  resVal = 10.0;	
-		  doseEdge_ResToAll(resVal);
+		  DE_ResToAll(resVal);
 		  calc_var_resistance(calc_parallel_resistance(resVal, 19), 3.3);
 		  branch_current(0.21, resVal);
 		  tc = total_current(0.21, resVal, 19);
@@ -314,7 +313,7 @@ int main(int argc, char const *argv[]) {
 		  printf("\n");		
 		  
 		  resVal = 24.9;	
-		  doseEdge_ResToAll(resVal);
+		  DE_ResToAll(resVal);
 		  calc_var_resistance(calc_parallel_resistance(resVal, 19), 3.3);
 		  branch_current(0.21, resVal);
 		  tc = total_current(0.21, resVal, 19);
@@ -326,7 +325,7 @@ int main(int argc, char const *argv[]) {
 	/** Uncomment this section for full range calculations
 	printf("Fixed resistor = 10 Ohms\n\n");
 	for (count = 10; count <= 63.0; count = count + 0.5) {
-		doseEdge_ResToAll(count);
+		DE_ResToAll(count);
 		calc_var_resistance(calc_parallel_resistance(count, 19), 3.3);
 		branch_current(0.21, count);
 		float tc = total_current(0.21, count, 19);
