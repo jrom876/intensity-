@@ -14,24 +14,24 @@
 #include <check.h>
 #include "intensity.c"
 
-#define PI	3.14159265358979323846 // ad infinitum
-#define LIGHT_SPEED		299792458.0 // meters per second
-#define DATA_SIZE 1000
-#define MICRO 1.0e-6
-#define NANO 1.0e-9
-#define PICO 1.0e-12
-#define KILO 1.0e3
-#define MEGA 1.0e6
-#define GIGA 1.0e9
-#define TERA 1.0e12 
+#define PI		3.14159265358979323846 // ad infinitum
+#define LIGHT_SPEED	299792458.0 // meters per second
+#define DATA_SIZE 	1000
+#define MICRO 		1.0e-6
+#define NANO 		1.0e-9
+#define PICO 		1.0e-12
+#define KILO 		1.0e3
+#define MEGA 		1.0e6
+#define GIGA 		1.0e9
+#define TERA 		1.0e12 
 #define AIR_REFRACTIVE_INDEX 1.00027717
-#define E0 8.8541878128*PICO				// Permittivity of Free Space in Farads per meter
-#define MU0 1.25663706212*MICRO			// Permeability of Free Space in Newtons per square meter
-#define EPSILON_0 1/(MU0*(LIGHT_SPEED*LIGHT_SPEED))	// Permittivity of Free Space Equation
+#define E0 		8.8541878128*PICO	// Permittivity of Free Space in Farads per meter
+#define MU0 		1.25663706212*MICRO	// Permeability of Free Space in Newtons per square meter
+#define EPSILON_0 	1/(MU0*(LIGHT_SPEED*LIGHT_SPEED)) // Permittivity of Free Space Equation
 #define ELECTRON_CHARGE 1.6e-19 // Electric charge of an electron in Coulombs
 #define RADIUS_HELIUM_ATOM 26.5e-12
 #define LED_ARRAY_RADIUS 0.35 // meters from LED arrayn to sample plate
-#define E_CONSTANT 1/(4*PI*EPSILON_0)
+#define E_CONSTANT 	1/(4*PI*EPSILON_0)
 
 //// IMPORTANT: Be sure to include the .c file, not the .h file.
 //// This gives us access to all static members of the .c file.
