@@ -4,7 +4,7 @@
 //	Author:		jrom876
 
 /**
-	Copyright (C) 2019, 2021 
+	Copyright (C) 2023 
 	Jacob Romero, Creative Engineering Solutions, LLC
 	cesllc876@gmail.com
 
@@ -46,24 +46,24 @@
 #include "circuit.h"
 
 /// STANDARD DEFINITIONS FOR PROJECT SCICALC 
-#define PI	3.14159265358979323846 // ad infinitum
-#define LIGHT_SPEED		299792458.0 // meters per second
-#define DATA_SIZE 1000
-#define MICRO 1.0e-6
-#define NANO 1.0e-9
-#define PICO 1.0e-12
-#define KILO 1.0e3
-#define MEGA 1.0e6
-#define GIGA 1.0e9
-#define TERA 1.0e12 
+#define PI		3.14159265358979323846 // ad infinitum
+#define LIGHT_SPEED	299792458.0 // meters per second
+#define DATA_SIZE 	1000
+#define MICRO 		1.0e-6
+#define NANO 		1.0e-9
+#define PICO 		1.0e-12
+#define KILO 		1.0e3
+#define MEGA 		1.0e6
+#define GIGA 		1.0e9
+#define TERA 		1.0e12 
 #define AIR_REFRACTIVE_INDEX 1.00027717
-#define E0 8.8541878128*PICO				// Permittivity of Free Space in Farads per meter
-#define MU0 1.25663706212*MICRO				// Permeability of Free Space in Newtons per square meter
-#define EPSILON_0 1/(MU0*(LIGHT_SPEED*LIGHT_SPEED))	// Permittivity of Free Space Equation
+#define E0 		8.8541878128*PICO	// Permittivity of Free Space in Farads per meter
+#define MU0 		1.25663706212*MICRO	// Permeability of Free Space in Newtons per square meter
+#define EPSILON_0 	1/(MU0*(LIGHT_SPEED*LIGHT_SPEED)) // Permittivity of Free Space Equation
 #define ELECTRON_CHARGE 1.6e-19 // Charge of an electron in Coulombs
 #define RADIUS_HELIUM_ATOM 26.5e-12
 #define LED_ARRAY_RADIUS 0.35 // meters from LED array to sample plate
-#define E_CONSTANT 1/(4*PI*EPSILON_0)
+#define E_CONSTANT 	1/(4*PI*EPSILON_0)
 
 void getUserInput(){
 	int exitFlag = 0;	
