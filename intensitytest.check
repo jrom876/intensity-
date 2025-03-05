@@ -70,7 +70,7 @@ void Run_Intensity_AutoTest_Loop(void){
 				double E_Helium = (1/((4*PI)*(EPSILON_0))) * ((2*(ELECTRON_CHARGE))/(RADIUS_HELIUM_ATOM*RADIUS_HELIUM_ATOM));
 				calc_intensity(LIGHT_SPEED, i3.ri, i3.e0, E_Helium);
 				
-				printf("\nIntensity of DoseEdge LED ArrayElectric Field\n");
+				printf("\nIntensity of an LED ArrayElectric Field\n");
 				//double E_LED_Array = (1/((4*PI)*(EPSILON_0))) * ((2*(ELECTRON_CHARGE))/(LED_ARRAY_RADIUS*LED_ARRAY_RADIUS));
 				calc_intensity(LIGHT_SPEED, i4.ri, i4.e0, E_LED_Array);								
 				
