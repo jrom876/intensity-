@@ -12,6 +12,6 @@
 ## Make unit tests and main
 
 make -f make-test.mk 
-#~ ./circuittest
+./circuittest
 ./intensitytest
-#~ ./main
+./main
