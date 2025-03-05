@@ -1,7 +1,7 @@
 #************************************************************************
 #	Package:	intensity
 #	File:		make-test.mk
-#	Purpose:	Automated Test Batteries for Project intensity
+#	Purpose:	Making Automated Test Batteries for Project intensity
 #	Author:		jromero
 #************************************************************************
 #	Copyright (C) 2019, 2021 
@@ -31,14 +31,14 @@
 CC=gcc
 CFLAGS=-Wall -g
 DEPS =	main.c \
-		intensity.c intensity.h \
-		circuit.c circuit.h \
+	intensity.c intensity.h \
+	circuit.c circuit.h \
 		
 OBJ = 	main.o \
-		circuit.o \
-		intensity.o \
-		intensitytest.o \
-		circuittest.o
+	circuit.o \
+	intensity.o \
+	intensitytest.o \
+	circuittest.o
 	
 DEBUG=-g
 LIBS=-lcheck -lm -lpthread -lrt -lsubunit -lcheck_pic
@@ -51,11 +51,11 @@ all: main intensitytest circuittest
 main: $(OBJ)
 	$(CC) $(CFLAGS) -o main main.o $(LIBS)
 
-#~ circuit: $(OBJ)
-#~ 	$(CC) $(CFLAGS) -o circuit circuit.o $(LIBS)
+circuit: $(OBJ)
+	$(CC) $(CFLAGS) -o circuit circuit.o $(LIBS)
 
-#~ intensity: $(OBJ)
-#~ 	$(CC) $(CFLAGS) -o intensity intensity.o $(LIBS)
+intensity: $(OBJ)
+	$(CC) $(CFLAGS) -o intensity intensity.o $(LIBS)
 
 intensitytest.o: $(DEPS) 
 	checkmk intensitytest.check >intensitytest.c
