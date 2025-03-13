@@ -193,7 +193,7 @@ float temp_diff_OJT_TR(float tempRise, float opJunct_Temp) {
 ///=============================================== 
 /// LED array specific functions:
 
-/// Calculates and returns the LUX output of an LED array 
+/// Calculates and prints the LUX output of an LED array 
 /// as a function of the current limiting resistor value
 
 void DE_ResToLux(float resistor) {
@@ -204,7 +204,7 @@ void DE_ResToLux(float resistor) {
 	 printf("LUX = %.2f\tlumen/m^2\t res = %.2f\n",result, resistor);
 }
 
-/// Calculates and returns the LUX output as a percentage of maximum 
+/// Calculates and prints the LUX output as a percentage of maximum 
 /// of an LED array as a function of the current limiting resistor value
 
 void DE_ResToPercent(float resistor) {
@@ -214,7 +214,7 @@ void DE_ResToPercent(float resistor) {
 	 float result = (maxPercent - (resistor * PercentSlope) >= 0) ? maxPercent - (resistor * PercentSlope) : 0;
 	 printf("Percent of Max = %.4f\t for resistor value = %.2f\n",result, resistor);
 }
-/// Calculates and returns multiple useful values of an LED array 
+/// Calculates and prints multiple useful values of an LED array 
 /// for circuit analysis purposes
 
 void DE_ResToAll(float resistor) {
