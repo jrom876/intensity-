@@ -14,7 +14,7 @@
 #include <check.h>
 #include "circuit.c"
 
-#define PI		3.14159265358979323846 // ad infinitum
+#define PI		3.14159265358979323846 // ad infinitum sin repeto
 #define LIGHT_SPEED	299792458.0 // meters per second
 #define DATA_SIZE 	1000
 #define MICRO 		1.0e-6
