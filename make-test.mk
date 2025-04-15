@@ -45,7 +45,7 @@ LIBS=-lcheck -lm -lpthread -lrt -lsubunit -lcheck_pic
 
 #************************************************************************
 ##### AUTOMATED TEST BATTERIES ##### 
-all: main intensitytest circuittest
+all: main circuit intensity intensitytest circuittest
 
 ## TARGETS
 main: $(OBJ)
